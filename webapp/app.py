@@ -52,9 +52,9 @@ def vgg16_predict(x):
 def translate2jp(en):
   return imagenet_class[en]["ja"]
 
-THRESHOLD = 0.5
 @app.route('/image-predict/predict', methods=['POST'])
 def predict():
+    print("predict")
     img = image.load_img(request.files['file'], target_size=(224, 224))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
@@ -66,6 +66,10 @@ def predict():
 def homepage():
     return render_template('index.html.slim', name='mako')
 
+@app.route('/<path:path>')
+def catch_all(path):
+    print(path)
+    return 'You want path: %s' % path
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', debug=True)
