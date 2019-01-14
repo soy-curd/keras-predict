@@ -15,7 +15,11 @@ from keras.models import load_model
 from keras.applications.vgg16 import preprocess_input, decode_predictions
 from keras.preprocessing import image
 
-app = Flask(__name__, instance_relative_config=True)
+app = Flask(__name__
+  , instance_relative_config=True
+  , static_url_path='/image-predict/static'
+  )
+
 # For Plim templates
 mako = MakoTemplates(app)
 app.config['MAKO_PREPROCESSOR'] = preprocessor
@@ -28,8 +32,6 @@ json_data = json.load(f)
 imagenet_class = {}
 for data in json_data:
   imagenet_class[data["en"]] = data
-
-print(imagenet_class)
 
 # Preload our model
 print("Loading model")
@@ -51,15 +53,17 @@ def translate2jp(en):
   return imagenet_class[en]["ja"]
 
 THRESHOLD = 0.5
-@app.route('/predict', methods=['POST'])
+@app.route('/image-predict/predict', methods=['POST'])
 def predict():
     img = image.load_img(request.files['file'], target_size=(224, 224))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
     result = vgg16_predict(x)
+    # result = {"class": "hgoe", "name": "fuga"}
     return jsonify(ResultSet=result)
 
 @app.route('/')
+@app.route('/image-predict')
 def homepage():
     return render_template('index.html.slim', name='mako')
 
