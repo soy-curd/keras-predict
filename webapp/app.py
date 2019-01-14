@@ -62,8 +62,7 @@ def predict():
     # result = {"class": "hgoe", "name": "fuga"}
     return jsonify(ResultSet=result)
 
-@app.route('/')
-@app.route('/image-predict')
+@app.route('/image-predict/')
 def homepage():
     return render_template('index.html.slim', name='mako')
 
