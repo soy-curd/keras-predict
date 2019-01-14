@@ -1,5 +1,5 @@
 # coding: UTF-8
-import io, traceback
+import io, traceback, os
 import json
 
 from flask import Flask, request, g
@@ -72,4 +72,4 @@ def catch_all(path):
     return 'You want path: %s' % path
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0', debug=True, port=os.environ["PORT"])
