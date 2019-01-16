@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link href="/image-predict/static/app.css" rel="stylesheet"" crossorigin=" anonymous">
+  <link href="/image-predict/static/dropzone.css" rel="stylesheet"" crossorigin=" anonymous">
+  <script src="/image-predict/static/app.js"></script>
+  <script src="/image-predict/static/dropzone.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h3 class="text-muted">画像をアップロードしてください </h3>
+    </div>
+  </div>
+  <form action="/image-predict/predict" class="dropzone">
+    <div class="fallback">
+      <input name="file" type="file" />
+    </div>
+  </form>
+</body>
+
+</html>
