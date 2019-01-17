@@ -29,7 +29,7 @@ for data in json_data:
 
 # Preload our model
 print("Loading model")
-# model = load_model('./model/model.h5', compile=False)
+model = load_model('./model/model.h5', compile=False)
 print("Loading is finihsed")
 
 
@@ -52,13 +52,13 @@ def predict():
     img = image.load_img(request.files['file'], target_size=(224, 224))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
-    # result = vgg16_predict(x)
-    result = {"class": "hgoe", "name": "fuga"}
-    return jsonify(ResultSet=result)
+    result = vgg16_predict(x)
+    # result = {"class": "hgoe", "name": "fuga"}
+    return jsonify(result)
 
 @app.route('/image-predict/')
 def homepage():
-  
+
     print("hoge")
     return render_template('index.html')
 
@@ -69,3 +69,4 @@ def catch_all(path):
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=os.environ["PORT"])
+

@@ -3,9 +3,12 @@
 
 <head>
   <meta charset="utf-8">
-  <link href="/image-predict/static/app.css" rel="stylesheet"" crossorigin=" anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
   <link href="/image-predict/static/dropzone.css" rel="stylesheet"" crossorigin=" anonymous">
-  <script src="/image-predict/static/app.js"></script>
+  <link href="/image-predict/static/application.css" rel="stylesheet"" crossorigin=" anonymous">
   <script src="/image-predict/static/dropzone.js"></script>
 </head>
 
@@ -15,11 +18,16 @@
       <h3 class="text-muted">画像をアップロードしてください </h3>
     </div>
   </div>
-  <form action="/image-predict/predict" class="dropzone">
+  <form id="dropzone" action="/image-predict/predict" class="dropzone">
     <div class="fallback">
       <input name="file" type="file" />
     </div>
   </form>
+  <div class="result hidden">
+    これはもしかして<p class="answer">犬</p>ですか？
+  </div>
+  <div class="error hidden"></div>
+  <script src="/image-predict/static/application.js"></script>
 </body>
 
 </html>
