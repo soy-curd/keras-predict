@@ -27,15 +27,3 @@ sh ./start.sh # modelのロードに90sほどかかる
 + [VGG16 * keras](http://aidiary.hatenablog.com/entry/20170104/1483535144)
 
 + [Imagener日本語ラベル](http://pynote.hatenablog.com/entry/keras-vgg16-mode)
-
-
-Kerasを使って画像分類するwebアプリを動かしてみた
-
-Kerasを使って画像分類するwebアプリを動かしてみた。
-
-http://soy-curd.com/image-predict/
-
-
-哺乳類は結構判定できているかんじがする。
-
-実装はほとんどこの記事(https://medium.com/@burgalon/deploying-your-keras-model-35648f9dc5fb)をそのまま参考にした。モデルはVGG16をそのまま使ったので、ImageNetにない画像は分類できない。
