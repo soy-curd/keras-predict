@@ -6,8 +6,6 @@ from flask import Flask, request, g, render_template
 from flask import jsonify
 from flask import send_file
 
-# from PIL import Image, ExifTags
-# from scipy.misc import imresize
 import numpy as np
 from keras.models import load_model
 from keras.applications.vgg16 import preprocess_input, decode_predictions
@@ -58,8 +56,6 @@ def predict():
 
 @app.route('/image-predict/')
 def homepage():
-
-    print("hoge")
     return render_template('index.html')
 
 @app.route('/<path:path>')
