@@ -21,6 +21,13 @@ sh ./start.sh # modelのロードに90sほどかかる
 + [ ] テンプレート修正
 + [ ] モデル修正
 
+## trouble shoot
+### `Tensor Tensor(“predictions/Softmax:0”, shape=(?, 1000), dtype=float32) is not an element of this graph`
+
+```
+rm -r ~/.keras/
+```
+
 ## 参考
 + [Deploying your Keras model](https://medium.com/@burgalon/deploying-your-keras-model-35648f9dc5fb)
 

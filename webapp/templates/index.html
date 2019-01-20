@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="jp">
 
 <head>
   <meta charset="utf-8">
@@ -7,26 +7,42 @@
   <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
   <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
   <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
-  <link href="/image-predict/static/dropzone.css" rel="stylesheet"" crossorigin=" anonymous">
-  <link href="/image-predict/static/application.css" rel="stylesheet"" crossorigin=" anonymous">
-  <script src="/image-predict/static/dropzone.js"></script>
+  <link href="{{ url_for('static', filename='dropzone.css') }}" rel="stylesheet"" crossorigin=" anonymous">
+  <link href="{{ url_for('static', filename='application.css') }}" rel="stylesheet"" crossorigin=" anonymous">
+  <script src="{{ url_for('static', filename='dropzone.js') }}"></script>
 </head>
 
 <body>
-  <div class="container">
-    <div class="header">
-      <h3 class="text-muted">画像をアップロードしてください </h3>
+  <header class="header-content bg-gray navbar">
+    <section class="navbar-section">
+      <a href="/image-predict/" class="navbar-brand mr-2">画像分類</a>
+      <a href="https://github.com/soy-curd/keras-predict" class="btn btn-link">GitHub</a>
+    </section>
+  </header>
+  <div class="content">
+    <div class="container">
+      <div class="columns">
+        <div class="column col-12">
+          <form id="dropzone" action="/image-predict/predict" class="dropzone">
+            <div class="fallback">
+              <input name="file" type="file" />
+            </div>
+            <div class="dz-message" data-dz-message><span>画像をアップロードしてください</span></div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="conteiner">
+      <div class="column col-12">
+        <div class="result hidden">
+          これはもしかして<span class="answer">犬</span>ですか？
+        </div>
+        <div class="error hidden"></div>
+      </div>
     </div>
   </div>
-  <form id="dropzone" action="/image-predict/predict" class="dropzone">
-    <div class="fallback">
-      <input name="file" type="file" />
-    </div>
-  </form>
-  <div class="result hidden">
-    これはもしかして<p class="answer">犬</p>ですか？
-  </div>
-  <div class="error hidden"></div>
+
+
   <script src="/image-predict/static/application.js"></script>
 </body>
 

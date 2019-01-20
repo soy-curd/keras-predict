@@ -1,7 +1,24 @@
+.header-content {
+  padding: 0.5rem;
+}
+
+.content {
+  padding: 0.5rem;
+}
+
 .hidden {
   display: none;
 }
 
 .error {
   color: red;
+}
+
+.answer {
+  font-size: 1.5rem;
+  color: red;
+}
+
+.result {
+  font-size: 1rem;
 }
